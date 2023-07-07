@@ -83,7 +83,12 @@ async function fetchingURL() {
             itemCard.classList.add('carta')
             const carta = document.querySelector('.carta')
             // console.log(carta);
-
+            let population = ''
+            if (Math.round(item.population/1000000)>1) {
+                population=Math.round(item.population/1000000)+'M'
+            }else {
+                population=Math.round(item.population/1000)+'K'
+            }
 
             // console.log(item);
             itemCard.innerHTML = `<img
@@ -94,7 +99,7 @@ async function fetchingURL() {
           <div class="card-content">
             <h2 class="title">${item.name.common}</h2>
             <p class="pop__title">
-              <b>Population</b>: <span class="population">${item.population}</span>
+              <b>Population</b>: <span class="population">${population}</span>
             </p>
             <p class="pop__title">
               <b>Region</b>: <span class="region">${item.region}</span>

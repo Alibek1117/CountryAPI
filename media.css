@@ -16,4 +16,10 @@
         margin-top: 70px;
         align-items: center;
     }
+
+    
+    .country__info{
+        flex-direction: column;
+        
+    }
 }
