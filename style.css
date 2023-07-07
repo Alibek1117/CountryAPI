@@ -117,6 +117,9 @@ a{
 .search__icon__dark img{
     filter: invert(100%);
 }
+.form__search{
+    width: 100%;
+}
 
 .search__input{
     width: 100%;
@@ -319,7 +322,7 @@ a{
     
 }
 
-.dark-mode{
+/* .dark-mode{
     background-color: #202D36;
     color: #eeecec;
-}
+} */

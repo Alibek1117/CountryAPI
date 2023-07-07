@@ -47,7 +47,7 @@
     color: rgb(245, 245, 245);
 }
 .country__info .left img{
-    width: 470px;
+    width: 100%;
     height:  320px;
     border-radius: 10px;
 
@@ -82,8 +82,9 @@
     border-radius: 5px;
     font-size: 12px;
     padding: 0 15px;
-    background-color: rgb(224, 223, 222);
+    background-color: rgba(224, 223, 222, 0.575);
     color: rgb(48, 47, 47);
+    border: 1px solid rgb(92, 91, 91);
 }
 .border__btn__dark{
     border-radius: 5px;
@@ -91,4 +92,30 @@
     padding: 0 15px;
     background-color: rgb(76, 81, 92);
     color: rgb(221, 221, 221);
+}
+
+.dark__mode__img__dark{
+    filter: invert(100%);
+    display: none;
+}
+.light__mode__img__dark{
+    filter: invert(100%);
+}
+
+.mode__imgs{
+    margin-right: 5px;
+    width: 27px;
+    height: 27px;
+    overflow: hidden;
+}
+.mode__titles{
+    width: 120px;
+    height: 27px;
+    overflow: hidden;
+}
+.mode__titles h4{
+    margin: 5px 0 10px 0;
+}
+.dark__title__dark{
+   display: none;
 }

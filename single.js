@@ -1,8 +1,11 @@
+// import './main'
+
 const darkMode = document.querySelector('.dark__mode')
 const full = document.querySelector('.full')
 const header = document.querySelector('.header')
 const dark__mode__img = document.querySelector('.dark__mode__img')
-
+const light__mode__img = document.querySelector('.light__mode__img')
+const dark__title = document.querySelector('.dark__title')
 const singleFlafg = document.querySelector('.left')
 const top__left = document.querySelector('.top__left')
 const top__right = document.querySelector('.top__right')
@@ -17,7 +20,8 @@ darkMode.addEventListener('click', () => {
     country__info.classList.toggle('country__info__dark')
     // border__btn.classList.toggle('border__btn__dark')
     btn__back.classList.toggle('dark__btn')
-    // console.log(country__info);
+    light__mode__img.classList.toggle('light__mode__img__dark')
+    dark__title.classList.toggle('dark__title__dark')
     btn__back.childNodes[1].classList.toggle('back__arrow');
 
 
@@ -26,7 +30,7 @@ darkMode.addEventListener('click', () => {
 const queryString = window.location.search
 const urlParams = new URLSearchParams(queryString)
 const country = urlParams.get('country')
-const countryAPI = `https://restcountries.com/v3.1/name/${country}`
+const countryAPI = `https://restcountries.com/v3.1/${country}`
 
 async function countryURL() {
     let request = await fetch(`${countryAPI}`)
@@ -36,9 +40,15 @@ async function countryURL() {
         let nativeName = Object.values(item.name.nativeName)[0].official
         let currancy = Object.values(item.currencies)[0].name
         let languages = Object.values(item.languages)
-        let population = Math.round(item.population/1000000)+'M'
+        let population = ''
+            if (Math.round(item.population / 1000000000) >= 1) {
+                population = Math.round(item.population / 1000000000) +'B'
+            }else if (Math.round(item.population / 1000000) >= 1) {
+                population = Math.round(item.population / 1000000) + 'M'
+            } else {
+                population = Math.round(item.population / 1000) + 'K'
+            }
         singleFlafg.innerHTML = `<img src='${item.flags.png}' alt="">`
-        console.log(item, languages);
         top__left.innerHTML = `
         <h3 class = 'single__count__name'>${item.name.common}</h3>
         <div class = 'native__name single__class'>
@@ -71,12 +81,11 @@ async function countryURL() {
         <div class = 'country__borders'>
          <b>Border Countries: </b>${item.borders ? item.borders.map((border) => {
             return `
-            <button class = 'border__btn'>${(border)}</button> 
+            <a class = 'border__btn' href = "./single.html?country=/alpha/${border}">${border}</a>
             `
         }) : "No Borders"}
         </div>
         `
-        console.log(item.borders);
     })
 }
 countryURL()

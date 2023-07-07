@@ -1,7 +1,7 @@
+
 const filter = document.querySelector('.filter')
 const regions = document.querySelector('#regionId')
 const formSearch = document.querySelector('.form__search')
-// const regions1 = document.querySelector('.regions1')
 const region = document.querySelectorAll('.region')
 const filterTitle = document.querySelector('.filter__title')
 const darkMode = document.querySelector('.dark__mode')
@@ -46,10 +46,6 @@ region.forEach((reg) => {
         filterTitle.textContent = reg.textContent;
     })
 })
-// darkMode.addEventListener('click',()=>{
-//     full.classList.toggle('dark-mode')
-//     modeFromStore ? localStorage.setItem('mode', '') : localStorage.setItem('mode', 'dark')
-// })
 darkMode.addEventListener('click', () => {
     full.classList.toggle('full__dark')
     header.classList.toggle('header__dark')
@@ -62,26 +58,20 @@ darkMode.addEventListener('click', () => {
     search__input.classList.toggle('search__input__dark')
     search__icon.classList.toggle('search__icon__dark')
     dark__title.classList.toggle('dark__title__dark')
-
-
 })
-
-
-
-
-
 async function fetchingURL() {
     try {
         let request = await fetch("https://restcountries.com/v3.1/all")
         let res = await request.json()
         let data = res.map((item, i) => {
             let itemCard = document.createElement('a')
-            itemCard.setAttribute('href', `./single.html?country=${item.name.common}`)
+            itemCard.setAttribute('href', `./single.html?country=/name/${item.name.common}`)
             itemCard.classList.add('carta')
-            const carta = document.querySelector('.carta')
             // console.log(carta);
             let population = ''
-            if (Math.round(item.population / 1000000) > 1) {
+            if (Math.round(item.population / 1000000000) >= 1) {
+                population = Math.round(item.population / 1000000000) +'B'
+            }else if (Math.round(item.population / 1000000) >= 1) {
                 population = Math.round(item.population / 1000000) + 'M'
             } else {
                 population = Math.round(item.population / 1000) + 'K'
@@ -105,7 +95,6 @@ async function fetchingURL() {
             </p>
           </div>`;
             card.append(itemCard);
-            // console.log(item.name.common);
             formSearch.addEventListener('keyup', e => {
                 e.preventDefault()
                 let searchValue = formSearch.searching.value.toLowerCase()
@@ -114,73 +103,56 @@ async function fetchingURL() {
                 card.appendChild(itemCard);
                 if (countNames.includes(searchValue)) {
                     itemCard.style.display = 'block'
-
                 } else {
                     itemCard.style.display = 'none'
-
+                    
                 }
-               
             })
-
+      
             africa.addEventListener('click', () => {
                 if (item.region == 'Africa') {
                     itemCard.style.display = 'block'
-
-
                 } else {
                     itemCard.style.display = 'none'
                 }
             })
             america.addEventListener('click', () => {
                 if (item.region == 'Americas') {
-                    itemCard.style.display = 'block'
-                   
+                    itemCard.style.display = 'block'  
                 }
                 else {
                     itemCard.style.display = 'none'
-
                 }
             })
             asia.addEventListener('click', () => {
                 if (item.region == 'Asia') {
-                    // console.log(itemCard);
                     itemCard.style.display = 'block'
 
                 }
                 else {
                     itemCard.style.display = 'none'
-
                 }
             })
             europe.addEventListener('click', () => {
                 if (item.region == 'Europe') {
-                    // console.log(itemCard);
-
                 }
                 else {
                     itemCard.style.display = 'none'
-
                 }
             })
             oceania.addEventListener('click', () => {
                 if (item.region == 'Oceania') {
                     // console.log(itemCard);
                     itemCard.style.display = 'block'
-
                 }
                 else {
                     itemCard.style.display = 'none'
-
                 }
             })
             whole.addEventListener('click', () => {
                 itemCard.style.display = 'block'
             })
-
-
         })
-
-
     } catch (err) {
 
         let title = 'Bu joyladan kamchili tipomisiz ustoz:)'
