@@ -5,6 +5,7 @@ const formSearch = document.querySelector('.form__search')
 const region = document.querySelectorAll('.region')
 const filterTitle = document.querySelector('.filter__title')
 const darkMode = document.querySelector('.dark__mode')
+const modeFromStore = localStorage.getItem('mode') ? localStorage.getItem('mode') : null
 const full = document.querySelector('.full')
 const header = document.querySelector('.header')
 const dark__mode__img = document.querySelector('.dark__mode__img')
@@ -30,6 +31,9 @@ const capital = document.querySelector(".capital");
 const cardImg = document.querySelector(".card-img");
 const carta = document.querySelector(".carta");
 
+if (modeFromStore) {
+    full.classList.add('dark-mode')
+}
 
 filter.addEventListener('click', () => {
     // regions.remove('class', 'regions')
@@ -53,7 +57,10 @@ region.forEach((reg) => {
 
     })
 })
-
+darkMode.addEventListener('click',()=>{
+    full.classList.toggle('dark-mode')
+    modeFromStore ? localStorage.setItem('mode', '') : localStorage.setItem('mode', 'dark')
+})
 darkMode.addEventListener('click', () => {
     full.classList.toggle('full__dark')
     header.classList.toggle('header__dark')

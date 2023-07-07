@@ -215,14 +215,16 @@ a{
 .body__cards{
     display: grid;
     grid-template-columns: 22% 22% 22% 22%;
-    gap: 33px;
+    gap: 45px;
     margin-top: 70px;
+    text-align: center;
 }
 
 .carta{
-    background-color: rgb(216, 215, 215);
+    background-color: rgba(216, 215, 215, 0.596);
     border-radius: 10px;
     overflow: hidden;
+    text-align: left;
 }
 .carta__dark{
     background-color:#2B3743;
@@ -270,3 +272,7 @@ a{
     
 }
 
+.dark-mode{
+    background-color: #202D36;
+    color: #eeecec;
+}
