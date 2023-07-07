@@ -77,6 +77,8 @@
 }
 
 .border__btn{
+    margin-top: 10px;
+    border-width: 1px;
     border-radius: 5px;
     font-size: 12px;
     padding: 0 15px;

@@ -57,8 +57,35 @@ a{
     margin-right: 7px;
     
 }
+.light__mode__img{
+    width: 25px;
+    margin-right: 7px;
+    
+}
 .dark__mode__img__dark{
     filter: invert(100%);
+    display: none;
+}
+.light__mode__img__dark{
+    filter: invert(100%);
+}
+
+.mode__imgs{
+    margin-right: 5px;
+    width: 27px;
+    height: 27px;
+    overflow: hidden;
+}
+.mode__titles{
+    width: 120px;
+    height: 27px;
+    overflow: hidden;
+}
+.mode__titles h4{
+    margin: 5px 0 10px 0;
+}
+.dark__title__dark{
+   display: none;
 }
 
 
@@ -225,7 +252,16 @@ a{
     border-radius: 10px;
     overflow: hidden;
     text-align: left;
+    transition: 0.5s;
 }
+.carta:hover{
+    transform: scale(1.05);
+    box-shadow: -5px 5px 15px 2px #242323;
+}
+.carta:active{
+    transform: scale(1.02);
+}
+
 .carta__dark{
     background-color:#2B3743;
     
@@ -242,6 +278,8 @@ a{
 
 .card-content .title{
     font-size: 20px;
+    margin: 0px 0;
+    margin-bottom: 10px;
 }
 
 .pop__title,
@@ -249,14 +287,23 @@ a{
 .camita__title{
     font-size: 14px;
     color: #262731;
+    margin: 5px 0px;
+
 }
 
 
 .error__title{
-    color: rgb(228, 20, 20);
+    color: rgb(44, 228, 20);
     margin-top: 200px;
     text-align: center;
     font-size: 50px;
+}
+.error__title2{
+    color: rgb(228, 20, 20);
+    margin-top: 100px;
+    text-align: center;
+    font-size: 10px;
+    padding-bottom: 110px;
 }
 
 

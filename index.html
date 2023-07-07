@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,50 +8,58 @@
     <link rel="stylesheet" href="./media.css">
     <title>Document</title>
 </head>
+
 <body>
-    
-<section class="full">
-    <header class="header">
-        <div class="container">
-            <h2 class="head__title">Where is the world?</h2>
-            <div class="dark__mode">
-                <img class="dark__mode__img" src="./imgs/moon.svg" alt="moon">
-                <h4 class="dark__title">Dark Mode</h4>
-            </div>
-        </div>
-    </header>
-    <section class="body">
-        <div class="container">
-            <div class="body__top">
-                <div class="search__bar">
-                    <div class="search__icon"><img src="./imgs/search.svg" alt="search"></div>
-                    <form class="form__search"><input  class="search__input" type="text" name="searching" placeholder="Search for a country..."></form>
-                    
-                </div>
-                <div class="filter__box">
-                    <div class="filter">
-                        <p class="filter__title">Filter by Region</p>
-                        <img class="img__light" src="./imgs/down.svg" alt="down">
+
+    <section class="full">
+        <header class="header">
+            <div class="container">
+                <h2 class="head__title">Where is the world?</h2>
+                <div class="dark__mode">
+                    <div class="mode__imgs">
+                        <img class="dark__mode__img" src="./imgs/moon.svg" alt="moon">
+                        <img class="light__mode__img" src="./imgs/sun.svg" alt="sun">
                     </div>
-                     <div class="regions" id="regionId">
+                    <div class="mode__titles">
+                        <h4 class="dark__title">Dark Mode</h4>
+                        <h4 class="light__title">Light Mode</h4>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="body">
+            <div class="container">
+                <div class="body__top">
+                    <div class="search__bar">
+                        <div class="search__icon"><img src="./imgs/search.svg" alt="search"></div>
+                        <form class="form__search"><input class="search__input" type="text" name="searching"
+                                placeholder="Search for a country..." autocomplete="off"></form>
+
+                    </div>
+                    <div class="filter__box">
+                        <div class="filter">
+                            <p class="filter__title">Filter by Region</p>
+                            <img class="img__light" src="./imgs/down.svg" alt="down">
+                        </div>
+                        <div class="regions" id="regionId">
                             <div class="region africa">Africa</div>
                             <div class="region america">America</div>
                             <div class="region asia">Asia</div>
                             <div class="region europe">Europe</div>
                             <div class="region oceania">Oceania</div>
                             <div class="region whole">All</div>
+                        </div>
+
                     </div>
-                    
+                </div>
+                <div class="body__cards container">
+
                 </div>
             </div>
-            <div class="body__cards container">
-
-            </div>
-            <div class="error"></div>
-        </div>
+        </section>
     </section>
-</section>
 
     <script src="./main.js"></script>
     <a href="./single.html"></a>
 </body>
+

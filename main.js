@@ -9,6 +9,7 @@ const modeFromStore = localStorage.getItem('mode') ? localStorage.getItem('mode'
 const full = document.querySelector('.full')
 const header = document.querySelector('.header')
 const dark__mode__img = document.querySelector('.dark__mode__img')
+const light__mode__img = document.querySelector('.light__mode__img')
 const dark__title = document.querySelector('.dark__title')
 const imgFilter = document.querySelector('.img__light')
 const search__bar = document.querySelector('.search__bar')
@@ -39,40 +40,29 @@ filter.addEventListener('click', () => {
     // regions.remove('class', 'regions')
     regions.classList.toggle('regions1')
 })
+// console.log(regions.textContent);
 region.forEach((reg) => {
     reg.addEventListener('click', () => {
         filterTitle.textContent = reg.textContent;
-        // let added = document.createElement('div')
-        // added.classList.add('region')
-        // added.textContent = "All"
-        // regions.append(added)
-        // region.forEach(el => {
-        //     // if (el.textContent!='All') {
-        //     //     added.textContent = "All"
-        //     // }
-        //     console.log(el.textContent);
-        // });
-
-        // // console.log(added);
-
     })
 })
-darkMode.addEventListener('click',()=>{
-    full.classList.toggle('dark-mode')
-    modeFromStore ? localStorage.setItem('mode', '') : localStorage.setItem('mode', 'dark')
-})
+// darkMode.addEventListener('click',()=>{
+//     full.classList.toggle('dark-mode')
+//     modeFromStore ? localStorage.setItem('mode', '') : localStorage.setItem('mode', 'dark')
+// })
 darkMode.addEventListener('click', () => {
     full.classList.toggle('full__dark')
     header.classList.toggle('header__dark')
     dark__mode__img.classList.toggle('dark__mode__img__dark')
+    light__mode__img.classList.toggle('light__mode__img__dark')
     filter.classList.toggle('filter__dark')
     imgFilter.classList.toggle('img__dark')
     regions.classList.toggle('regions1__dark')
     search__bar.classList.toggle('search__bar__dark')
     search__input.classList.toggle('search__input__dark')
     search__icon.classList.toggle('search__icon__dark')
-    // carta.setAttribute('class', 'carta__dark')
-    dark__title.textContent = 'Light Mode'
+    dark__title.classList.toggle('dark__title__dark')
+
 
 })
 
@@ -91,17 +81,16 @@ async function fetchingURL() {
             const carta = document.querySelector('.carta')
             // console.log(carta);
             let population = ''
-            if (Math.round(item.population/1000000)>1) {
-                population=Math.round(item.population/1000000)+'M'
-            }else {
-                population=Math.round(item.population/1000)+'K'
+            if (Math.round(item.population / 1000000) > 1) {
+                population = Math.round(item.population / 1000000) + 'M'
+            } else {
+                population = Math.round(item.population / 1000) + 'K'
             }
 
-            // console.log(item);
             itemCard.innerHTML = `<img
             src=${item.flags.png}
             class="card-img"
-            alt=""
+            alt="flag"
           />
           <div class="card-content">
             <h2 class="title">${item.name.common}</h2>
@@ -130,22 +119,22 @@ async function fetchingURL() {
                     itemCard.style.display = 'none'
 
                 }
+               
             })
 
             africa.addEventListener('click', () => {
                 if (item.region == 'Africa') {
-                    // console.log(itemCard);
                     itemCard.style.display = 'block'
-                }
-                else {
-                    itemCard.style.display = 'none'
 
+
+                } else {
+                    itemCard.style.display = 'none'
                 }
             })
             america.addEventListener('click', () => {
                 if (item.region == 'Americas') {
-                    // console.log(itemCard);
                     itemCard.style.display = 'block'
+                   
                 }
                 else {
                     itemCard.style.display = 'none'
@@ -156,6 +145,7 @@ async function fetchingURL() {
                 if (item.region == 'Asia') {
                     // console.log(itemCard);
                     itemCard.style.display = 'block'
+
                 }
                 else {
                     itemCard.style.display = 'none'
@@ -165,7 +155,7 @@ async function fetchingURL() {
             europe.addEventListener('click', () => {
                 if (item.region == 'Europe') {
                     // console.log(itemCard);
-                    itemCard.style.display = 'block'
+
                 }
                 else {
                     itemCard.style.display = 'none'
@@ -176,6 +166,7 @@ async function fetchingURL() {
                 if (item.region == 'Oceania') {
                     // console.log(itemCard);
                     itemCard.style.display = 'block'
+
                 }
                 else {
                     itemCard.style.display = 'none'
@@ -184,7 +175,6 @@ async function fetchingURL() {
             })
             whole.addEventListener('click', () => {
                 itemCard.style.display = 'block'
-
             })
 
 
@@ -194,16 +184,12 @@ async function fetchingURL() {
     } catch (err) {
 
         let title = 'Bu joyladan kamchili tipomisiz ustoz:)'
-        full.innerHTML = `<h2 class = 'error__title'>${title}</h2>`
+        full.innerHTML = `<h2 class = 'error__title'>${title}</h2><h5 class = 'error__title2'>Oma lekin boshqa joylada bitta ikkita boor:(</h5> `
         // span.classList.add('span')
     }
 
 }
 fetchingURL()
-
-// export const createCountryInfo = (country) => {
-//     console.log(country);
-// }
 
 
 
